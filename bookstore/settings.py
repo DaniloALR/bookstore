@@ -89,7 +89,7 @@ WSGI_APPLICATION = "bookstore.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:UzxgyTCgqGHAtbmfwFvzGnNUpahgQkib@meticulous-empathy.railway.internal:5432/railway')
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 url = urlparse(DATABASE_URL)
 
