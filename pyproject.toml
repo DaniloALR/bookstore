@@ -16,6 +16,7 @@ django-extensions = "^3.2.3"
 django-debug-toolbar = "^4.4.6"
 whitenoise = "^6.7.0"
 waitress = "^3.0.0"
+python-dotenv = "^1.0.1"
 
 
 [tool.poetry.group.dev.dependencies]

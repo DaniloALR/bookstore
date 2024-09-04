@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from urllib.parse import urlparse
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,32 +90,14 @@ WSGI_APPLICATION = "bookstore.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL')
-
-url = urlparse(DATABASE_URL)
-
-if DATABASE_URL:
-    url = urlparse(DATABASE_URL)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': url.path[1:],  
-            'USER': url.username,
-            'PASSWORD': url.password,
-            'HOST': url.hostname,
-            'PORT': url.port,
-        }
-    }
-else:
-    
-    DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
-        "NAME": os.environ.get("SQL_DATABASE", "bookstore_dev_db"),
-        "USER": os.environ.get("SQL_USER", "bookstore_dev"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "bookstore_dev"),
-        "HOST": os.environ.get("SQL_HOST", "db"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('SQL_DATABASE', 'railway'),
+        'USER': os.getenv('SQL_USER', 'postgres'),
+        'PASSWORD': os.getenv('SQL_PASSWORD', 'UzxgyTCgqGHAtbmfwFvzGnNUpahgQkib'),
+        'HOST': os.getenv('SQL_HOST', 'autorack.proxy.rlwy.net'),
+        'PORT': os.getenv('SQL_PORT', '14550'),
     }
 }
 
