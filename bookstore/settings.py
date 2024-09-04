@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 from urllib.parse import urlparse
+from decouple import config
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path='/bookstore/env.dev')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -92,12 +96,12 @@ WSGI_APPLICATION = "bookstore.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('SQL_DATABASE', 'railway'),
-        'USER': os.getenv('SQL_USER', 'postgres'),
-        'PASSWORD': os.getenv('SQL_PASSWORD', 'UzxgyTCgqGHAtbmfwFvzGnNUpahgQkib'),
-        'HOST': os.getenv('SQL_HOST', 'autorack.proxy.rlwy.net'),
-        'PORT': os.getenv('SQL_PORT', '14550'),
+        'ENGINE': config('SQL_ENGINE', default='django.db.backends.postgresql'),
+        'NAME': config('SQL_DATABASE', default='railway'),
+        'USER': config('SQL_USER', default='postgres'),
+        'PASSWORD': config('SQL_PASSWORD', default='UzxgyTCgqGHAtbmfwFvzGnNUpahgQkib'),
+        'HOST': config('SQL_HOST', default='autorack.proxy.rlwy.net'),
+        'PORT': config('SQL_PORT', default='14550'),
     }
 }
 
