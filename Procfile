@@ -1,2 +1,1 @@
- release: python manage.py migrate
- web: gunicorn bookstore.wsgi
+web: waitress-serve --host=0.0.0.0 --port=8080 bookstore.wsgi:application

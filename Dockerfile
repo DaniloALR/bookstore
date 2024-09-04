@@ -42,7 +42,7 @@ WORKDIR /app
 COPY . /app/
 
 # expose the port
-EXPOSE 8000
+EXPOSE 8080
 
 # run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]

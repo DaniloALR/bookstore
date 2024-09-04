@@ -13,11 +13,11 @@ services:
       - POSTGRES_DB=bookstore_dev_db
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - C:/Users/dluzr/Desktop/daniloalr-repo/bookstore:/usr/src/app/
     ports:
-      - 8000:8000
+      - 8080:8080
     env_file:
       - ./env.dev
     depends_on:
