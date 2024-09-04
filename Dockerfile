@@ -45,4 +45,4 @@ COPY . /app/
 EXPOSE 8080
 
 # run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=8080", "bookstore.wsgi:application"]
